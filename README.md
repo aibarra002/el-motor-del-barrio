@@ -9,7 +9,7 @@
 
 ## El negocio
 
-El proyecto busca **[describir la necesidad o problema que resuelve]** para **[indicar quiénes usarían la solución]**. Su objetivo es **[describir el propósito principal del sistema]**.
+El proyecto busca **organizar información de un parqueadero** para **hacer mas facil la organización de sus datos**.
 
 ## Cómo ejecutar el motor
 
