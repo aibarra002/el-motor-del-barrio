@@ -39,9 +39,25 @@ function listarTodo(datos) {
   return datos
 }
 
-// ---------- NIVEL 2 · Reportes ----------
-function totalGeneral(datos) {}
-function promedio(datos) {}
+function totalGeneral(registros) {
+  
+  let valor_total = 0;
+  for (const registro of registros) {
+    valor_total += registro.valor
+  }
+  
+  return valor_total
+}
+
+function promedio(registros) {
+
+  for (const registro of registros) {
+    valor_total += registro.valor
+  }
+  return valor_total
+  let promedios=valor_total/registros.length
+  return promedios
+}
 function registroMayor(datos) {}
 function filtrarPorCategoria(datos, categoria) {}
 function totalesPorCategoria(datos) {}
@@ -64,6 +80,8 @@ function deshacer(datos) {}
 
 // ---------- ZONA DE PRUEBAS ----------
 
-console.log(mostrarRegistro("ASD-12C", registros))
-console.log(listarTodo(registros))
+/* console.log(mostrarRegistro("ASD-12C", registros))
+console.log(listarTodo(registros)) */
+console.log(totalGeneral(registros))
+console.log(promedio(registros))
   
