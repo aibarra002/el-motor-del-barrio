@@ -46,19 +46,34 @@ function totalGeneral(registros) {
     valor_total += registro.valor
   }
   
-  return valor_total
+  return valor_total;
 }
 
 function promedio(registros) {
 
-  for (const registro of registros) {
-    valor_total += registro.valor
-  }
-  return valor_total
-  let promedios=valor_total/registros.length
-  return promedios
+  let valor_total=(totalGeneral(registros))/registros.length;
+  
+  return valor_total;
 }
-function registroMayor(datos) {}
+
+function obtenerVentaMayor(ventas) {
+    if (!ventas || ventas.length === 0) return null;
+
+    let ventaMayor = ventas[0];
+    let mayorTotal = valorVenta(ventaMayor)
+
+    for (const venta of ventas) {
+
+        const totalActual = valorVenta(venta);
+
+        if (totalActual > mayorTotal) {
+            mayorTotal = totalActual;
+            ventaMayor = venta;
+        }
+    }
+
+    return ventaMayor;
+}
 function filtrarPorCategoria(datos, categoria) {}
 function totalesPorCategoria(datos) {}
 
