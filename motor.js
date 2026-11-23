@@ -22,7 +22,7 @@ const registros =
     { persona: "alejandro gomez", tipodevehiculo: "carro", valor: 50000, placa: "HIL-111", fecha_ingreso: "02-11-2026 06:00", fecha_salida: "02-11-2026 18:00" },
     { persona: "brayan tangarife", tipodevehiculo: "moto", valor: 25000, placa: "ASD-12C", fecha_ingreso: "03-11-2026 08:00", fecha_salida: "03-11-2026 18:00" },
     { persona: "diego garcia", tipodevehiculo: "moto", valor: 10000, placa: "JKL-56E", fecha_ingreso: "04-11-2026 12:00", fecha_salida: "04-11-2026 16:00" },
-    { persona: "laura garcia", tipodevehiculo: "carro", valor: 10000, placa: "MTC-124", fecha_ingreso: "01-11-2026 13:00", fecha_salida: "01-11-2026 15:00" },
+    { persona: "paola garcia", tipodevehiculo: "carro", valor: 10000, placa: "OFF-303", fecha_ingreso: "02-11-2026 10:00", fecha_salida: "02-11-2026 12:00" },
     { persona: "helen sanchez", tipodevehiculo: "moto", valor: 25000, placa: "MTC-121", fecha_ingreso: "01-11-2026 06:00", fecha_salida: "01-11-2026 18:00" },
     { persona: "daicy sanchez", tipodevehiculo: "carro", valor: 20000, placa: "FGH-99D", fecha_ingreso: "01-11-2026 09:00", fecha_salida: "01-11-2026 13:00" },
     { persona: "miguel hernandez", tipodevehiculo: "moto", valor: 2500, placa: "PRD-222", fecha_ingreso: "01-11-2026 15:00", fecha_salida: "01-11-2026 16:00" },
@@ -38,7 +38,7 @@ function mostrarRegistro(registro) {
 
 function listarTodo(datos) {
   for (const registro of datos) {
-    mostrarRegistro(registro);
+    console.log(mostrarRegistro(registro));
   };
 }
 
@@ -81,17 +81,30 @@ function filtrarPorCategoria(registros, categoria) {
 }
 
 function totalesPorCategoria(datos) { 
-  let totalCategirias = {};
+  let totalCategorias = {};
   for (const registro of datos){
-    totalCategirias[registro.tipodevehiculo] = (totalCategirias[registro.tipodevehiculo] || 0) + 1;
+    totalCategorias[registro.tipodevehiculo] = (totalCategorias[registro.tipodevehiculo] || 0) + 1;
     
   }
-  return totalCategirias;
+  return totalCategorias;
 }
 
 // ---------- NIVEL 3 · Set y Map ----------
-function personasUnicas(datos) { }
-function recurrentesLento(datos) { }
+
+function personasUnicas(datos) { 
+  const unica = new Set ();
+
+  for(const registro of datos){ 
+    unica.add (registro.persona);
+  }
+return unica;
+
+}
+
+function recurrentesLento(datos) {
+   
+}
+
 function recurrentesRapido(datos) { }
 function categoriaEstrella(datos) { }
 function parQueSuma(datos, objetivo) { }
@@ -107,11 +120,13 @@ function deshacer(datos) { }
 
 
 
-console.log(filtrarPorCategoria(registros,"camioneta"));
-
-/* console.log(mostrarRegistro(ASD-12C, registros))
-console.log(listarTodo(registros)) 
-console.log(totalGeneral(registros))
-console.log(promedio(registros))
-console.log(registroMayor(registros))
-console.log(filtrarPorCategoria(registros, moto))  */
+/* console.log(filtrarPorCategoria(registros,"camioneta")); */
+/* console.log(mostrarRegistro(registros[0])); */
+/*  console.log(listarTodo(registros))  */
+/* console.log(totalGeneral(registros)) */
+/* console.log(promedio(registros)) */
+/* console.log(registroMayor(registros)) */
+/* console.log(filtrarPorCategoria(registros, "moto")) */
+/* console.log  (totalesPorCategoria (registros))  */
+/* console.log (personasUnicas (registros))  */
+ 
