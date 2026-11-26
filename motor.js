@@ -219,6 +219,7 @@ function listarTodo(datos) {
     console.log(mostrarRegistro(registro));
   }
 }
+// ---------- NIVEL 2 · Reportes ----------
 
 function totalGeneral(registros) {
   let valor_total = 0;
@@ -229,6 +230,8 @@ function totalGeneral(registros) {
 }
 
 function promedio(registros) {
+  if (registros.length === 0) return 0;
+
   let valor_total = totalGeneral(registros) / registros.length;
 
   return valor_total;
@@ -274,8 +277,7 @@ function personasUnicas(datos) {
   for (const registro of datos) {
     unica.add(registro.persona);
   }
-<<<<<<< HEAD
-return unica;
+  return unica;
 }
 
 function recurrentesLento(datos) {
@@ -288,7 +290,7 @@ function recurrentesLento(datos) {
       }
     }
   }
-  console.log(repetidos);
+  return repetidos;
 }
 function recurrentesRapido(datos) {
   const vistas = new Set();
@@ -303,17 +305,7 @@ function recurrentesRapido(datos) {
   }
 
   return [...repetidas];
-}
-
-function categoriaEstrella(datos) { }
-function parQueSuma(datos, objetivo) { }
-=======
-  return unica;
-}
-
-function recurrentesLento(datos) {}
-
-function recurrentesRapido(datos) {}
+};
 
 function categoriaEstrella(datos) {
   let categorias = totalesPorCategoria(datos);
@@ -344,12 +336,10 @@ function parQueSuma(datos, objetivo) {
   }
 
   return null;
-}
->>>>>>> 84e23525d9d9332df1d4fc3155573ab97605e7a9
+};
 
 // ---------- NIVEL 4 · Cola y pila ----------
-
-
+const colaDeAtencion = [];
  class Vehiculo{
   constructor(){
     this.cola=[]
@@ -377,11 +367,9 @@ function parQueSuma(datos, objetivo) {
  colas.llegar(registros[6]);
  colas.llegar(registros[7]);
 
-//console.log(colas.atender())
-
-//console.table(colas.cola)
-
+ 
 function agregarRegistro(datos, registro) {
+  const historial = [];
   datos.push(registro);
   historial.push(registro);
 
@@ -389,6 +377,7 @@ function agregarRegistro(datos, registro) {
 }
 
 function deshacer(datos) {
+  const historial = [];
   if (historial.length === 0) {
     return null;
   }
@@ -397,17 +386,7 @@ function deshacer(datos) {
   datos.pop();
 
   return ultimo;
-}
-
-
-const colaDeAtencion = [];
-function llegar(persona) {}
-function atender() {}
-
-const historial = [];
-function agregarRegistro(datos, registro) {}
-function deshacer(datos) {}
-
+};
 
 /* console.log(filtrarPorCategoria(registros,"camioneta")); */
 /* console.log(mostrarRegistro(registros[0])); */
@@ -419,16 +398,26 @@ function deshacer(datos) {}
 /* console.log  (totalesPorCategoria (registros))  */
 /* console.log (personasUnicas (registros))  */
 
-<<<<<<< HEAD
-/*console.log("Registro agregado:",agregarRegistro(registros, { persona: "maria", placa: "ABC123", valor: 50000, tipodevehiculo: "carro" }));*/
-/*console.log("Registro deshecho:",deshacer(registros));*/
-/*console.log(recurrentesLento(registros));*/
-/*console.log(recurrentesRapido(registros));*/
-=======
 
-console.log("Registro agregado:",agregarRegistro(registros, { persona: "maria", placa: "ABC123", valor: 50000, tipodevehiculo: "carro" }));
-console.log("Registro deshecho:",deshacer(registros));
-console.log(categoriaEstrella(registros));
-console.log(parQueSuma(registros, 30000));
+console.log(recurrentesLento(registros));
+console.log(recurrentesRapido(registros));
+/*console.log(categoriaEstrella(registros));
+/*console.log(parQueSuma(registros, 30000));*/
 
->>>>>>> 84e23525d9d9332df1d4fc3155573ab97605e7a9
+
+
+/*console.log("Registro agregado:",agregarRegistro(registros, { persona: "maria", placa: "ABC123", valor: 50000, tipodevehiculo: "carro" }));
+console.log("Registro deshecho:",deshacer(registros));*/
+
+/*
+// ---------- PRUEBAS DE COLA ----------
+
+console.log("Cola completa:");
+console.table(colas.cola);
+
+console.log("Vehículo atendido:");
+console.log(colas.atender());
+
+console.log("Cola después de atender:");
+console.table(colas.cola);*/
+
