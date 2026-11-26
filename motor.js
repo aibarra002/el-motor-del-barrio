@@ -1,6 +1,3 @@
-// motor.js — El Motor del Barrio
-// Célula: ______   Negocio: ______
-
 const registros =
   [
     { persona: "rosa morales", tipodevehiculo: "camioneta", valor: 20000, placa: "SUV-202", fecha_ingreso: "01-11-2026 08:00", fecha_salida: "01-11-2026 12:00" },
@@ -144,9 +141,24 @@ console.log(colas.atender())
 console.table(colas.cola)
 
 const historial = [];
-function agregarRegistro(datos, registro) { }
-function deshacer(datos) {}
 
+function agregarRegistro(datos, registro) {
+  datos.push(registro);
+  historial.push(registro);
+
+  return registro;
+}
+
+function deshacer(datos) {
+  if (historial.length === 0) {
+    return null;
+  }
+
+  const ultimo = historial.pop();
+  datos.pop();
+
+  return ultimo;
+}
 
 
 /* console.log(filtrarPorCategoria(registros,"camioneta")); */
@@ -158,5 +170,8 @@ function deshacer(datos) {}
 /* console.log(filtrarPorCategoria(registros, "moto")) */
 /* console.log  (totalesPorCategoria (registros))  */
 /* console.log (personasUnicas (registros))  */
+
+console.log("Registro agregado:",agregarRegistro(registros, { persona: "maria", placa: "ABC123", valor: 50000, tipodevehiculo: "carro" }));
+console.log("Registro deshecho:",deshacer(registros));
 
  
