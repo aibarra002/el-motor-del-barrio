@@ -104,29 +104,26 @@ function recurrentesLento(datos) {
     for (let j = i + 1; j < datos.length; j++) {
       if (datos[i].placa === datos[j].placa) {
         repetidos.add(datos[i].placa);
-        break;
       }
     }
   }
-
-  const resultado = [];
-  for (const placa of repetidos) {
-    resultado.push(placa);
-  }
-
-  return resultado;
+  console.log(repetidos);
 }
-  for (let i = 0; i < datos.length; i++) {
-    const placa = datos[i].placa;
-    const veces = (conteo.get(placa) || 0) + 1;
-    conteo.set(placa, veces);
-    if (veces === 2) {
-      resultado.push(placa);
+function recurrentesRapido(datos) {
+  const vistas = new Set();
+  const repetidas = new Set();
+
+  for (const registro of datos) {
+    if (vistas.has(registro.placa)) {
+      repetidas.add(registro.placa);
+    } else {
+      vistas.add(registro.placa);
     }
   }
 
-  return resultado;
+  return [...repetidas];
 }
+
 function categoriaEstrella(datos) { }
 function parQueSuma(datos, objetivo) { }
 
@@ -197,5 +194,5 @@ function deshacer(datos) {
 
 /*console.log("Registro agregado:",agregarRegistro(registros, { persona: "maria", placa: "ABC123", valor: 50000, tipodevehiculo: "carro" }));*/
 /*console.log("Registro deshecho:",deshacer(registros));*/
-console.log(recurrentesLento(registros));
+/*console.log(recurrentesLento(registros));*/
 /*console.log(recurrentesRapido(registros));*/
