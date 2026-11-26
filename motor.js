@@ -110,13 +110,42 @@ function categoriaEstrella(datos) { }
 function parQueSuma(datos, objetivo) { }
 
 // ---------- NIVEL 4 · Cola y pila ----------
-const colaDeAtencion = [];
-function llegar(persona) { }
-function atender() { }
+
+
+ class Vehiculo{
+  constructor(){
+    this.cola=[]
+  }
+    llegar(placa){
+      this.cola.push(placa)
+  }
+    atender(){
+      if (this.cola.length==0){
+        return "No hay usuarios para atender"
+      }
+      return this.cola.shift()
+  }
+ }
+  
+
+ const colas=new Vehiculo()
+
+ colas.llegar(registros[0]);
+ colas.llegar(registros[1]);
+ colas.llegar(registros[2]);
+ colas.llegar(registros[3]);
+ colas.llegar(registros[4]);
+ colas.llegar(registros[5]);
+ colas.llegar(registros[6]);
+ colas.llegar(registros[7]);
+
+console.log(colas.atender())
+
+console.table(colas.cola)
 
 const historial = [];
 function agregarRegistro(datos, registro) { }
-function deshacer(datos) { }
+function deshacer(datos) {}
 
 
 
@@ -129,4 +158,5 @@ function deshacer(datos) { }
 /* console.log(filtrarPorCategoria(registros, "moto")) */
 /* console.log  (totalesPorCategoria (registros))  */
 /* console.log (personasUnicas (registros))  */
+
  
